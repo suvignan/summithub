@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-surface": "#283044",
+                "surface-container-high": "#e2e7ff",
+                "on-surface": "#131b2e",
+                "on-secondary-fixed-variant": "#413f82",
+                "surface-tint": "#4d44e3",
+                "primary": "#3525cd",
+                "surface-container-highest": "#dae2fd",
+                "on-secondary-container": "#454386",
+                "tertiary": "#7e3000",
+                "on-tertiary-fixed-variant": "#7b2f00",
+                "on-tertiary-container": "#ffd2be",
+                "inverse-on-surface": "#eef0ff",
+                "surface-bright": "#faf8ff",
+                "secondary": "#58579b",
+                "surface-variant": "#dae2fd",
+                "surface-container-lowest": "#ffffff",
+                "error": "#ba1a1a",
+                "tertiary-container": "#a44100",
+                "on-error": "#ffffff",
+                "on-secondary": "#ffffff",
+                "background": "#faf8ff",
+                "on-secondary-fixed": "#140f54",
+                "surface-dim": "#d2d9f4",
+                "outline-variant": "#c7c4d8",
+                "error-container": "#ffdad6",
+                "primary-fixed": "#e2dfff",
+                "on-primary-fixed-variant": "#3323cc",
+                "secondary-fixed-dim": "#c3c0ff",
+                "primary-fixed-dim": "#c3c0ff",
+                "on-background": "#131b2e",
+                "surface": "#faf8ff",
+                "on-tertiary": "#ffffff",
+                "primary-container": "#4f46e5",
+                "on-tertiary-fixed": "#351000",
+                "surface-container": "#eaedff",
+                "on-primary": "#ffffff",
+                "outline": "#777587",
+                "tertiary-fixed": "#ffdbcc",
+                "secondary-fixed": "#e2dfff",
+                "secondary-container": "#b6b4ff",
+                "on-primary-fixed": "#0f0069",
+                "tertiary-fixed-dim": "#ffb695",
+                "inverse-primary": "#c3c0ff",
+                "on-primary-container": "#dad7ff",
+                "on-error-container": "#93000a",
+                "surface-container-low": "#f2f3ff",
+                "on-surface-variant": "#464555"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.5rem",
+                "lg": "0.75rem",
+                "xl": "1rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-header {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col bg-slate-50 dark:bg-slate-900 py-8 px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="text-lg font-bold tracking-tighter text-indigo-700 dark:text-indigo-300">Editorial Intelligence</h1>
+<p class="text-xs font-medium text-on-surface-variant/60">The Digital Jurist</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-indigo-700 dark:text-indigo-300 font-semibold bg-white dark:bg-slate-800 shadow-sm rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-sm">Contracts</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 space-y-1 border-t border-slate-200/50">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-sm">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/80 backdrop-blur-xl flex items-center justify-between px-8 shadow-sm shadow-indigo-900/5">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search contracts..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-slate-100 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary text-xs font-bold overflow-hidden">
+<img alt="User Avatar" data-alt="professional corporate headshot of a legal counsel with a neutral background and professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJhsJ2lkY7lr52wniHJFtLGC5qARVs2Z1p0rwjzlYeCU7AnzOmuBZ8VegBBhjbcxEVLkfzIFiocncyg6wjHBD3OFqUi5jIyo_fkjAky5Pev6AshnHdpVsEK70tpMqT8oPjQ3QW5rkUvXkBlyhqx7GebaGMm-nnZjgwLZ58v-A0MDOgV5p7OdHquXJDzfEsWUWtdrMau3t0r2oB0pIXzbnZb99tnYNLIzRg4dS8YiPn0mNIFk8hhZRQK5N-ZbLt9X8aZ63N8wgy9YI"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="pt-24 pb-12 px-8 max-w-7xl mx-auto">
+<!-- 1. Header Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase">Master Services Agreement</span>
+<span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            Active
+                        </span>
+</div>
+<h1 class="text-4xl font-bold tracking-tight text-on-surface leading-tight">Global Distribution Agreement <span class="text-on-surface-variant font-normal">FY24-082</span></h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2.5 rounded-lg border border-outline-variant/30 text-on-surface font-semibold text-sm hover:bg-surface-container-low transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+                        Edit
+                    </button>
+<button class="px-5 py-2.5 rounded-lg bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold text-sm shadow-lg shadow-primary/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="file_download">file_download</span>
+                        Export
+                    </button>
+</div>
+</section>
+<!-- 2. Overview Cards (Bento-style Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="md:col-span-2 p-6 bg-surface-container-lowest rounded-xl flex flex-col justify-between group transition-all hover:bg-surface-container">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Contracting Parties</p>
+<div class="flex items-center gap-2 pt-2">
+<p class="text-lg font-bold text-on-surface">TechGlobal Solutions Inc.</p>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="sync">sync</span>
+<p class="text-lg font-bold text-on-surface">Nexus Logistics Co.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim text-3xl" data-icon="corporate_fare">corporate_fare</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl flex flex-col justify-between transition-all hover:bg-surface-container">
+<div class="space-y-1">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Total Contract Value</p>
+<p class="text-3xl font-bold text-primary mt-2">$2.45M</p>
+</div>
+<p class="text-xs text-on-surface-variant mt-4 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-emerald-500" data-icon="trending_up">trending_up</span>
+                        12% increase from FY23
+                    </p>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl flex flex-col justify-between transition-all hover:bg-surface-container">
+<div class="space-y-1">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Expiry Date</p>
+<p class="text-3xl font-bold text-on-surface mt-2">Oct 12, 2025</p>
+</div>
+<p class="text-xs text-tertiary font-bold mt-4">142 Days Remaining</p>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Timeline & Preview -->
+<div class="lg:col-span-8 space-y-8">
+<!-- 3. Timeline Section -->
+<div class="p-8 bg-surface-container-lowest rounded-xl">
+<h3 class="text-lg font-bold text-on-surface mb-8">Contract Lifecycle</h3>
+<div class="relative flex justify-between">
+<!-- Horizontal Line -->
+<div class="absolute top-5 left-0 w-full h-[2px] bg-surface-container-highest"></div>
+<!-- Milestone 1 -->
+<div class="relative z-10 flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-lg" data-icon="task_alt">task_alt</span>
+</div>
+<div class="text-center">
+<p class="text-xs font-bold text-on-surface">Created</p>
+<p class="text-[10px] text-on-surface-variant">Jan 15, 2024</p>
+</div>
+</div>
+<!-- Milestone 2 -->
+<div class="relative z-10 flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-lg" data-icon="verified">verified</span>
+</div>
+<div class="text-center">
+<p class="text-xs font-bold text-on-surface">Active</p>
+<p class="text-[10px] text-on-surface-variant">Feb 01, 2024</p>
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="relative z-10 flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-lg" data-icon="update">update</span>
+</div>
+<div class="text-center">
+<p class="text-xs font-bold text-on-surface-variant">Renewal Window</p>
+<p class="text-[10px] text-on-surface-variant">Aug 12, 2025</p>
+</div>
+</div>
+<!-- Milestone 4 -->
+<div class="relative z-10 flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-lg" data-icon="event_busy">event_busy</span>
+</div>
+<div class="text-center">
+<p class="text-xs font-bold text-on-surface-variant">Expiry</p>
+<p class="text-[10px] text-on-surface-variant">Oct 12, 2025</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. File Preview -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden min-h-[600px] relative border border-outline-variant/10">
+<div class="absolute inset-0 flex flex-col">
+<div class="h-12 bg-surface-container-lowest flex items-center justify-between px-4 border-b border-outline-variant/5">
+<div class="flex items-center gap-4">
+<p class="text-xs font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-red-500" data-icon="picture_as_pdf">picture_as_pdf</span>
+                                        MSA_Nexus_Final_Signed.pdf
+                                    </p>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<p class="text-[10px] text-on-surface-variant">Page 1 of 24</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-1 text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-lg" data-icon="zoom_in">zoom_in</span></button>
+<button class="p-1 text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-lg" data-icon="zoom_out">zoom_out</span></button>
+<button class="p-1 text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-lg" data-icon="print">print</span></button>
+</div>
+</div>
+<div class="flex-1 p-12 bg-white flex justify-center overflow-auto">
+<div class="w-full max-w-2xl bg-white shadow-2xl p-16 space-y-8 h-fit">
+<h2 class="text-2xl font-bold tracking-tight text-center">MASTER SERVICES AGREEMENT</h2>
+<div class="space-y-4">
+<div class="h-4 bg-slate-100 rounded w-full"></div>
+<div class="h-4 bg-slate-100 rounded w-11/12"></div>
+<div class="h-4 bg-slate-100 rounded w-full"></div>
+<div class="h-4 bg-slate-100 rounded w-4/5"></div>
+</div>
+<div class="space-y-2 pt-8">
+<p class="text-xs font-bold">1. DEFINITIONS</p>
+<div class="h-4 bg-slate-100 rounded w-full"></div>
+<div class="h-4 bg-slate-100 rounded w-full"></div>
+</div>
+<div class="space-y-2 pt-4">
+<p class="text-xs font-bold">2. SCOPE OF WORK</p>
+<div class="h-4 bg-slate-100 rounded w-full"></div>
+<div class="h-4 bg-slate-100 rounded w-3/4"></div>
+</div>
+<div class="pt-12 border-t border-slate-100">
+<div class="flex justify-between">
+<div class="w-32 h-16 bg-slate-50 border-b-2 border-slate-400"></div>
+<div class="w-32 h-16 bg-slate-50 border-b-2 border-slate-400"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: AI Insights -->
+<div class="lg:col-span-4 space-y-6">
+<!-- AI Summary -->
+<div class="bg-indigo-50 dark:bg-slate-900 rounded-xl p-6 border border-primary/10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="text-base font-bold text-on-surface">AI Intelligence Summary</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0"></span>
+<p class="text-sm text-on-surface-variant leading-relaxed">This MSA governs all software distribution and logistics services between TechGlobal and Nexus Logistics for the EMEA region.</p>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0"></span>
+<p class="text-sm text-on-surface-variant leading-relaxed">Net-45 payment terms identified, which deviates from the standard Net-30 organizational policy.</p>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0"></span>
+<p class="text-sm text-on-surface-variant leading-relaxed">Automatic renewal clause active unless written notice is provided 90 days prior to expiration.</p>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0"></span>
+<p class="text-sm text-on-surface-variant leading-relaxed">Force Majeure includes standard pandemic and labor strike clauses with 10-day remediation windows.</p>
+</li>
+</ul>
+</div>
+<!-- Risk Alerts -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-error/5">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-8 h-8 rounded-lg bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error text-xl" data-icon="report">report</span>
+</div>
+<h3 class="text-base font-bold text-on-surface">Risk Alerts</h3>
+</div>
+<div class="space-y-4">
+<!-- Alert 1 -->
+<div class="p-4 rounded-lg bg-error-container/20 border border-error/10">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-lg" data-icon="warning">warning</span>
+<div>
+<p class="text-xs font-bold text-error uppercase tracking-wider">High Severity</p>
+<p class="text-sm font-semibold text-on-surface mt-1">Limited Liability Cap</p>
+<p class="text-xs text-on-surface-variant mt-1">The liability cap is set at 3x annual contract value, exceeding the internal safety limit of 1x.</p>
+</div>
+</div>
+</div>
+<!-- Alert 2 -->
+<div class="p-4 rounded-lg bg-tertiary-fixed/20 border border-tertiary/10">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="gavel">gavel</span>
+<div>
+<p class="text-xs font-bold text-tertiary uppercase tracking-wider">Medium Severity</p>
+<p class="text-sm font-semibold text-on-surface mt-1">Governing Law: DE</p>
+<p class="text-xs text-on-surface-variant mt-1">Contract is governed by Delaware law, requiring outside counsel review for UK operations.</p>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2.5 text-sm font-bold text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-2 border-t border-outline-variant/10 pt-4">
+                            View Compliance Report
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Metadata Sidebar Details -->
+<div class="bg-surface-container-lowest rounded-xl p-6 space-y-6">
+<h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Document Details</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Owner</span>
+<span class="font-semibold text-on-surface">Legal Ops Team</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Category</span>
+<span class="font-semibold text-on-surface">Supply Chain</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Currency</span>
+<span class="font-semibold text-on-surface">USD ($)</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">AI Scan Date</span>
+<span class="font-semibold text-on-surface">Aug 24, 2024</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Action (Contextual) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-primary text-on-primary shadow-2xl flex items-center justify-center hover:scale-105 transition-transform group">
+<span class="material-symbols-outlined text-2xl" data-icon="chat_bubble">chat_bubble</span>
+<span class="absolute right-16 bg-on-surface text-surface text-[10px] font-bold py-1 px-3 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Ask AI about this contract</span>
+</button>
+</body></html>

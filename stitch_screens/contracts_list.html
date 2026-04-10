@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contract Intelligence | Repository</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-header {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#283044",
+                        "surface-container-high": "#e2e7ff",
+                        "on-surface": "#131b2e",
+                        "on-secondary-fixed-variant": "#413f82",
+                        "surface-tint": "#4d44e3",
+                        "primary": "#3525cd",
+                        "surface-container-highest": "#dae2fd",
+                        "on-secondary-container": "#454386",
+                        "tertiary": "#7e3000",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "on-tertiary-container": "#ffd2be",
+                        "inverse-on-surface": "#eef0ff",
+                        "surface-bright": "#faf8ff",
+                        "secondary": "#58579b",
+                        "surface-variant": "#dae2fd",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#a44100",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "background": "#faf8ff",
+                        "on-secondary-fixed": "#140f54",
+                        "surface-dim": "#d2d9f4",
+                        "outline-variant": "#c7c4d8",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#e2dfff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-background": "#131b2e",
+                        "surface": "#faf8ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#4f46e5",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-container": "#eaedff",
+                        "on-primary": "#ffffff",
+                        "outline": "#777587",
+                        "tertiary-fixed": "#ffdbcc",
+                        "secondary-fixed": "#e2dfff",
+                        "secondary-container": "#b6b4ff",
+                        "on-primary-fixed": "#0f0069",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "inverse-primary": "#c3c0ff",
+                        "on-primary-container": "#dad7ff",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f3ff",
+                        "on-surface-variant": "#464555"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col bg-slate-50 dark:bg-slate-900 py-8 px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="text-lg font-bold tracking-tighter text-indigo-700 dark:text-indigo-300">Editorial Intelligence</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">The Digital Jurist</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard Tab (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors font-medium text-sm rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<!-- Contracts Tab (Active) -->
+<a class="flex items-center gap-3 px-3 py-2 text-indigo-700 dark:text-indigo-300 font-semibold bg-white dark:bg-slate-800 shadow-sm rounded-lg transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                Contracts
+            </a>
+<!-- Analytics Tab (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors font-medium text-sm rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+                Analytics
+            </a>
+<!-- Settings Tab (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors font-medium text-sm rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto pt-4 space-y-1 border-t border-slate-100 dark:border-slate-800/50">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors font-medium text-sm rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+                Profile
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors font-medium text-sm rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex flex-col min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/10 dark:border-slate-800/10 shadow-sm shadow-indigo-900/5">
+<div class="flex items-center justify-between px-8 w-full h-full">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-indigo-500/20 transition-all placeholder:text-slate-400" placeholder="Search contracts, parties, or clauses..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-slate-400 hover:text-indigo-600 transition-all relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-error ring-2 ring-white"></span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-slate-200">
+<img alt="User Avatar" data-alt="close-up portrait of a professional male executive with a kind smile, clean corporate background, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6JMKpR0cxw0nALd2kgYemH9eZWMadrnUNgdHTRk_WQPj-B0Qyv-bF87egBSP4MT7ccRXxjtoOgDSzsNVURLQkZqeLdvnjL0EsnTOEfTkh2V5kvWgILsFICbl7vtiavwLjoDuBFm-DGqSATGvFBQ2wJeOZ2C0w14yCpH4SnDHJJsKQ53_xFL8OFZo9ej0613s4wPegKfGHIeLub8PM6rJmivdbPcURUyc6EJW_rKiMBsSdNUwUCmeJFfLR2eGnb08vyLve5teq0K4"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="mt-16 p-8 space-y-8 flex-1">
+<!-- Page Header Actions -->
+<div class="flex items-end justify-between">
+<div>
+<span class="text-xs font-bold uppercase tracking-[0.2em] text-indigo-600 mb-2 block">Contract Repository</span>
+<h2 class="text-4xl font-bold tracking-tight text-on-surface">Legal Inventory</h2>
+</div>
+<button class="flex items-center gap-2 px-6 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-lg shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-xl">add</span>
+                    Create New
+                </button>
+</div>
+<!-- Filters & Bento Controls -->
+<div class="grid grid-cols-12 gap-4">
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-4 flex items-center gap-2">
+<span class="text-xs font-bold text-on-surface-variant px-2 uppercase tracking-tighter">Filter By:</span>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-1.5 rounded-full text-xs font-semibold bg-primary text-on-primary">All Statuses</button>
+<button class="px-4 py-1.5 rounded-full text-xs font-semibold bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors">Active</button>
+<button class="px-4 py-1.5 rounded-full text-xs font-semibold bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors">Draft</button>
+<button class="px-4 py-1.5 rounded-full text-xs font-semibold bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors">Expired</button>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low rounded-xl p-4 flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white overflow-hidden bg-slate-300">
+<img alt="Collaborator 1" data-alt="headshot of a female legal analyst in a professional office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3g5a6csZX_TbmA1r-Omy6pS3d4I8xxrNW8lr4jbRfhTKAnMw1N5I0BIy5iMPNYKB_5dS2vUDr-D9_E015Gd4wk8X3Am0y8YzGmDB0FZPWy-J40bdM0fdrmZeTsifHV30u2FPGfgwh4CjneSTYo6PUzDgWoWxDbQdVcRPDXjBqhQwP6pHScjGSrfslIx7pbrEkMlnqjSyuhO4G_ocfCAk_YhUA97f2GSIkJClhb_FTTIRj9zq5VUS6RaKZmOaoyGlim0BfCdYEeAM"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white overflow-hidden bg-slate-300">
+<img alt="Collaborator 2" data-alt="portrait of a focused male professional wearing spectacles, modern architectural office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAULU0MwrVthiwfRBMicUR6mICrDTQYoPut2qZlBBdD-rQ_B8LWtY_RHkUqlkHL_IiA_IDPl5wDWbn4WyX6Kg6HmZiay4mlT3ZRlhy-4chWLufd6oWVwUkV-kvhSRo2WTOY98rrHmHPTH5nE1hhK05s9KjkoWTfW6AAjqYGsoVYO2M9snv8f-b7TTj6VlfOE__FXDbNoi8jUpmZK8KQdRwaxGgkcycfYtOd8owwjj0_DIXNxyXUxNsbsskzZ_TSx3fgcRa7pKNSYQw"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-primary">+12</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Team Workspace</span>
+</div>
+</div>
+<!-- Main Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm ring-1 ring-on-surface/5">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Contract Title</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Company A</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Company B</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Status</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">End Date</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Value</th>
+<th class="px-6 py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">Master Services Agreement 2024</span>
+<span class="text-[10px] text-on-surface-variant">REF: MSA-2941-X</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium">Vertex Dynamics Inc.</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium">Global Logistics Corp</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-700 uppercase tracking-tighter">Active</span>
+</td>
+<td class="px-6 py-5 text-sm font-mono text-on-surface-variant">Dec 31, 2024</td>
+<td class="px-6 py-5 text-sm font-bold text-on-surface">$1,450,000</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">more_vert</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">Software Licensing &amp; EULA</span>
+<span class="text-[10px] text-on-surface-variant">REF: LIC-8820-A</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium">CloudScale AI</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium">Vertex Dynamics Inc.</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 uppercase tracking-tighter">Draft</span>
+</td>
+<td class="px-6 py-5 text-sm font-mono text-on-surface-variant">Jun 15, 2025</td>
+<td class="px-6 py-5 text-sm font-bold text-on-surface">$245,000</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">more_vert</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">Strategic Partnership MOU</span>
+<span class="text-[10px] text-on-surface-variant">REF: MOU-0012-P</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium">Oceanic Blue Ltd</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium">Nexus Venture Group</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-error-container text-on-error-container uppercase tracking-tighter">Expired</span>
+</td>
+<td class="px-6 py-5 text-sm font-mono text-on-surface-variant">Jan 01, 2024</td>
+<td class="px-6 py-5 text-sm font-bold text-on-surface">N/A</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">more_vert</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">Lease Agreement - Building B</span>
+<span class="text-[10px] text-on-surface-variant">REF: LSE-5541-T</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium">Skyline Real Estate</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium">Vertex Dynamics Inc.</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-700 uppercase tracking-tighter">Active</span>
+</td>
+<td class="px-6 py-5 text-sm font-mono text-on-surface-variant">May 20, 2029</td>
+<td class="px-6 py-5 text-sm font-bold text-on-surface">$5,200,000</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">more_vert</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">NDA &amp; Confidentiality Agreement</span>
+<span class="text-[10px] text-on-surface-variant">REF: NDA-3321-S</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium">TechNova Solutions</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium">Internal Project</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-700 uppercase tracking-tighter">Active</span>
+</td>
+<td class="px-6 py-5 text-sm font-mono text-on-surface-variant">Nov 12, 2026</td>
+<td class="px-6 py-5 text-sm font-bold text-on-surface">---</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">more_vert</span>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination Footer -->
+<div class="px-6 py-4 bg-surface-container-low/30 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[11px] font-semibold text-on-surface-variant uppercase tracking-widest">Showing 1-10 of 342 contracts</span>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-slate-400 hover:bg-white hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-on-primary text-xs font-bold shadow-md shadow-primary/20">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white text-on-surface-variant text-xs font-bold transition-all">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white text-on-surface-variant text-xs font-bold transition-all">3</button>
+<span class="px-1 text-slate-400">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white text-on-surface-variant text-xs font-bold transition-all">35</button>
+</div>
+<button class="p-1.5 rounded-lg text-slate-400 hover:bg-white hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Summary Bento Mini-Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-indigo-600 rounded-xl p-6 text-on-primary relative overflow-hidden group">
+<div class="relative z-10">
+<span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Aggregate Portfolio Value</span>
+<div class="text-3xl font-bold mt-1">$42.8M</div>
+<div class="mt-4 flex items-center gap-2 text-xs font-medium">
+<span class="bg-white/20 px-2 py-1 rounded">+12.4%</span>
+<span class="opacity-70">from last quarter</span>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl opacity-10 group-hover:scale-110 transition-transform duration-500">payments</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-slate-100 relative group">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Nearing Expiration</span>
+<div class="text-3xl font-bold mt-1 text-on-surface">14</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="flex -space-x-1">
+<div class="w-6 h-6 rounded-full bg-error-container"></div>
+<div class="w-6 h-6 rounded-full bg-error-container/60"></div>
+<div class="w-6 h-6 rounded-full bg-error-container/30"></div>
+</div>
+<span class="text-[10px] font-bold text-error uppercase">Action Required</span>
+</div>
+<span class="material-symbols-outlined absolute -right-2 top-2 text-primary opacity-5 group-hover:opacity-10 transition-opacity">event_busy</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-slate-100 relative group">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Active Collaborators</span>
+<div class="text-3xl font-bold mt-1 text-on-surface">28</div>
+<div class="mt-4 flex items-center gap-1">
+<div class="h-1 flex-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[75%] rounded-full"></div>
+</div>
+<span class="text-[10px] font-bold text-primary ml-2">75% Load</span>
+</div>
+<span class="material-symbols-outlined absolute -right-2 top-2 text-primary opacity-5 group-hover:opacity-10 transition-opacity">group</span>
+</div>
+</div>
+</div>
+</main>
+</body></html>

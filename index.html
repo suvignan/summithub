@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ContractHub | Contract Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind dark mode config + init from localStorage/system
+    tailwind.config = { darkMode: 'class' }
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+   .status-pill { @apply px-2.5 py-0.5 rounded-full text-xs font-medium; }
+  </style>
+</head>
+<body class="h-full text-slate-800 bg-slate-50 dark:bg-slate-950 dark:text-slate-200">
+  <!-- NAV -->
+  <nav class="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center gap-8">
+          <div class="font-bold text-xl text-slate-900 dark:text-white">ContractHub</div>
+          <div class="hidden md:flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+            <a href="#" class="text-slate-900 dark:text-white">Dashboard</a>
+            <a href="#" class="hover:text-slate-900 dark:hover:text-white">Contracts</a>
+            <a href="#" class="hover:text-slate-900 dark:hover:text-white">Templates</a>
+            <a href="#" class="hover:text-slate-900 dark:hover:text-white">Approvals</a>
+            <a href="#" class="hover:text-slate-900 dark:hover:text-white">Reports</a>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative hidden sm:block">
+            <input type="text" placeholder="Search contracts..." class="w-64 pl-9 pr-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/10 dark:focus:ring-white/10" />
+            <svg class="w-4 h-4 absolute left-3 top-2.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"/></svg>
+          </div>
+
+          <!-- DARK MODE TOGGLE -->
+          <button id="themeToggle" aria-label="Toggle dark mode" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg id="moonIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          </button>
+
+          <img src="https://i.pravatar.cc/32?img=5" alt="User" class="w-8 h-8 rounded-full" />
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <!-- SUMMARY CARDS -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+        <div class="text-slate-500 dark:text-slate-400 text-sm">Active Contracts</div>
+        <div class="text-2xl font-semibold mt-1">142</div>
+      </div>
+      <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+        <div class="text-slate-500 dark:text-slate-400 text-sm">Pending Approval</div>
+        <div class="text-2xl font-semibold mt-1 flex items-center gap-2">8 <span class="status-pill bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">Action needed</span></div>
+      </div>
+      <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+        <div class="text-slate-500 dark:text-slate-400 text-sm">Expiring in 30 days</div>
+        <div class="text-2xl font-semibold mt-1 flex items-center gap-2">11 <span class="status-pill bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300">At risk</span></div>
+      </div>
+      <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+        <div class="text-slate-500 dark:text-slate-400 text-sm">Total Value</div>
+        <div class="text-2xl font-semibold mt-1">$24.3M</div>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-6">
+      <!-- TABLE -->
+      <div class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+        <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex gap-2">
+            <select class="text-sm border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-1.5 bg-white dark:bg-slate-800">
+              <option>All Statuses</option>
+              <option>Approved</option>
+              <option>In Review</option>
+              <option>Expired</option>
+            </select>
+            <select class="text-sm border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-1.5 bg-white dark:bg-slate-800">
+              <option>All Types</option>
+              <option>MSA</option>
+              <option>SOW</option>
+              <option>NDA</option>
+            </select>
+          </div>
+          <div class="flex gap-2">
+            <button class="text-sm px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">Export</button>
+            <button class="text-sm px-3 py-1.5 rounded-lg bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200">+ New Contract</button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-sm">
+            <thead class="bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+              <tr>
+                <th class="text-left font-medium px-4 py-3">Contract Name</th>
+                <th class="text-left font-medium px-4 py-3">Counterparty</th>
+                <th class="text-left font-medium px-4 py-3">Type</th>
+                <th class="text-left font-medium px-4 py-3">End Date</th>
+                <th class="text-left font-medium px-4 py-3">Status</th>
+                <th class="text-left font-medium px-4 py-3">Value</th>
+                <th class="px-4 py-3"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer" onclick="openModal('Acme MSA')">
+                <td class="px-4 py-3 font-medium">Acme MSA</td>
+                <td class="px-4 py-3">Acme Corp</td>
+                <td class="px-4 py-3">MSA</td>
+                <td class="px-4 py-3">2026-12-31</td>
+                <td class="px-4 py-3"><span class="status-pill bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">Approved</span></td>
+                <td class="px-4 py-3">$1.2M</td>
+                <td class="px-4 py-3 text-right">
+                  <button class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">⋯</button>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer" onclick="openModal('Vendor SOW Q2')">
+                <td class="px-4 py-3 font-medium">Vendor SOW Q2</td>
+                <td class="px-4 py-3">Beta LLC</td>
+                <td class="px-4 py-3">SOW</td>
+                <td class="px-4 py-3">2026-06-30</td>
+                <td class="px-4 py-3"><span class="status-pill bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">In Review</span></td>
+                <td class="px-4 py-3">$340K</td>
+                <td class="px-4 py-3 text-right">
+                  <button class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">⋯</button>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer" onclick="openModal('NDA - Gamma')">
+                <td class="px-4 py-3 font-medium">NDA - Gamma</td>
+                <td class="px-4 py-3">Gamma Inc</td>
+                <td class="px-4 py-3">NDA</td>
+                <td class="px-4 py-3">2026-04-20</td>
+                <td class="px-4 py-3"><span class="status-pill bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300">Expiring</span></td>
+                <td class="px-4 py-3">-</td>
+                <td class="px-4 py-3 text-right">
+                  <button class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">⋯</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+          <div class="font-semibold mb-3">Alerts</div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex gap-2"><span class="w-2 h-2 rounded-full bg-rose-500 mt-1.5"></span>3 contracts expire next week</li>
+            <li class="flex gap-2"><span class="w-2 h-2 rounded-full bg-amber-500 mt-1.5"></span>2 contracts missing attachments</li>
+            <li class="flex gap-2"><span class="w-2 h-2 rounded-full bg-amber-500 mt-1.5"></span>1 approval overdue (Sarah Chen)</li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+          <div class="font-semibold mb-3">Recent Activity</div>
+          <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+            <li>You approved <b>Vendor MSA</b> · 10m ago</li>
+            <li>Mark uploaded amendment · 1h ago</li>
+            <li>Auto-renewal triggered · 3h ago</li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+          <div class="font-semibold mb-3">Quick Actions</div>
+          <div class="grid gap-2">
+            <button class="w-full text-sm px-3 py-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200">+ New Contract</button>
+            <button class="w-full text-sm px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">+ Upload</button>
+            <button class="w-full text-sm px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">Create from Template</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL: Contract Detail -->
+  <div id="modal" class="fixed inset-0 z-40 hidden">
+    <div class="absolute inset-0 bg-black/40" onclick="closeModal()"></div>
+    <div class="absolute right-0 top-0 h-full w-full max-w-2xl bg-white dark:bg-slate-900 shadow-xl overflow-y-auto">
+      <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <div class="text-lg font-semibold" id="modalTitle">Contract Detail</div>
+        <button onclick="closeModal()" class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">✕</button>
+      </div>
+      <div class="p-6">
+        <div class="flex gap-2 mb-4">
+          <button class="tab-btn px-3 py-1.5 text-sm rounded-lg bg-slate-900 text-white dark:bg-white dark:text-slate-900" onclick="setTab(0)">Overview</button>
+          <button class="tab-btn px-3 py-1.5 text-sm rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" onclick="setTab(1)">Documents</button>
+          <button class="tab-btn px-3 py-1.5 text-sm rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" onclick="setTab(2)">Milestones</button>
+          <button class="tab-btn px-3 py-1.5 text-sm rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" onclick="setTab(3)">Approvals</button>
+        </div>
+
+        <div id="tab0" class="space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4 text-sm">
+            <div><div class="text-slate-500 dark:text-slate-400">Counterparty</div><div class="font-medium">Acme Corp</div></div>
+            <div><div class="text-slate-500 dark:text-slate-400">Type</div><div class="font-medium">MSA</div></div>
+            <div><div class="text-slate-500 dark:text-slate-400">Start Date</div><div class="font-medium">2024-01-01</div></div>
+            <div><div class="text-slate-500 dark:text-slate-400">End Date</div><div class="font-medium">2026-12-31</div></div>
+            <div><div class="text-slate-500 dark:text-slate-400">Value</div><div class="font-medium">$1,200,000</div></div>
+            <div><div class="text-slate-500 dark:text-slate-400">Renewal</div><div class="font-medium">Auto, 60 day notice</div></div>
+          </div>
+          <div>
+            <div class="text-slate-500 dark:text-slate-400 text-sm mb-2">Status</div>
+            <div class="flex items-center gap-2 text-sm">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Approved → Executed
+            </div>
+          </div>
+        </div>
+
+        <div id="tab1" class="hidden text-sm text-slate-600 dark:text-slate-400">Document versions and e-signature status would appear here.</div>
+        <div id="tab2" class="hidden text-sm text-slate-600 dark:text-slate-400">Milestones and obligations would appear here.</div>
+        <div id="tab3" class="hidden text-sm text-slate-600 dark:text-slate-400">Approver list and comments would appear here.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.theme = document.documentElement.classList.contains('dark')? 'dark' : 'light';
+    });
+
+    function openModal(name) {
+      document.getElementById('modalTitle').innerText = name;
+      document.getElementById('modal').classList.remove('hidden');
+      setTab(0);
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+    function setTab(i) {
+      [0,1,2,3].forEach(n => {
+        document.getElementById('tab'+n).classList.toggle('hidden', n!==i);
+        const btn = document.querySelectorAll('.tab-btn')[n];
+        const isActive = n===i;
+        btn.classList.toggle('bg-slate-900', isActive &&!document.documentElement.classList.contains('dark'));
+        btn.classList.toggle('text-white', isActive &&!document.documentElement.classList.contains('dark'));
+        btn.classList.toggle('bg-white', isActive && document.documentElement.classList.contains('dark'));
+        btn.classList.toggle('text-slate-900', isActive && document.documentElement.classList.contains('dark'));
+        btn.classList.toggle('hover:bg-slate-100',!isActive &&!document.documentElement.classList.contains('dark'));
+        btn.classList.toggle('hover:bg-slate-800',!isActive && document.documentElement.classList.contains('dark'));
+      });
+    }
+  </script>
+</body>
+</html>
